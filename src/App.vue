@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <Header />
+  <div class="main__wrapper">
+    <div v-if="loadingPage"><p>Loading...</p></div>
+    <router-view v-else />
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Header from "@/components/Header";
+import SpotifyApi from "@/mixins/spotify-mixin";
 
 export default {
   name: "App",
+  mixins: [SpotifyApi],
   components: {
-    HelloWorld,
+    Header,
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "./styles/_index.scss";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.main__wrapper {
+  padding: 0px 10% 100px;
 }
 </style>
