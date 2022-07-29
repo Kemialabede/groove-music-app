@@ -1,4 +1,4 @@
-# vue-crash
+# groove-music-app
 
 ## Project setup
 ```
