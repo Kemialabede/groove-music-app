@@ -2,7 +2,7 @@
   <div class="popular__albums">
     <slot></slot>
     <div v-if="loading">
-      <p>Loading...</p>
+      <p><Loader :color="black" /></p>
     </div>
     <div v-else class="popular__albums-wrapper">
       <div v-for="(album, index) in albums" :key="index">
@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import AlbumCover from "../../components/AlbumCover/AlbumCover.vue";
+import AlbumCover from "@/components/AlbumCover/AlbumCover.vue";
+import Loader from "@/components/Loader/Loader.vue";
 
 export default {
   name: "PopularAlbum",
@@ -27,6 +28,7 @@ export default {
   },
   components: {
     AlbumCover,
+    Loader,
   },
 };
 </script>

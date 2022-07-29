@@ -1,13 +1,16 @@
 <template>
   <Header />
   <div class="main__wrapper">
-    <div v-if="loadingPage"><p>Loading...</p></div>
+    <div v-if="loadingPage">
+      <p><Loader :color="black" />.</p>
+    </div>
     <router-view v-else />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
+import Loader from "@/components/Loader/Loader.vue";
 import SpotifyApi from "@/mixins/spotify-mixin";
 
 export default {
@@ -15,6 +18,7 @@ export default {
   mixins: [SpotifyApi],
   components: {
     Header,
+    Loader,
   },
 };
 </script>
